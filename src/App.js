@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import './Css/Signup.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import TodoList from './Component/TodoList';
+import Todos from './Component/Todos';
+import Counter from './Component/UseReducer';
+import UseStatecounter from './Component/UseState';
+import SignupForm from './Component/SignupForm';
+import Signup from './Component/Signup';
+import Layout from './Component/Layout';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div  >
+
+<BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<UseStatecounter />} />
+          <Route path="blogs" element={<TodoList />} />
+          <Route path="contact" element={<Todos />} />
+          <Route path="*" element={<Signup />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+     
+      {/* <Counter />
+      <UseStatecounter />
+      <TodoList />
+      <Todos />
+      < SignupForm />
+      < Signup /> */}
+    
     </div>
   );
 }
